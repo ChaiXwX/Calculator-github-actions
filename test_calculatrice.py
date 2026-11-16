@@ -1,13 +1,17 @@
-import unittest
+
+import pytest
 from calculatrice import addition, division
+from calculatrice import addition, division, soustraction
 
 
-class TestCalculatrice(unittest.TestCase):
-    def test_addition(self):
-        self.assertEqual(addition(2, 3), 5)
+def test_addition():
+    assert addition(2, 3) == 5
 
-    def test_division(self):
-        self.assertEqual(division(10, 2), 5)
 
-        with self.assertRaises(ValueError):
-            division(10, 0)
+def test_division():
+    assert division(10, 2) == 5
+
+    with pytest.raises(ValueError):
+        division(10, 0)
+def test_soustraction():
+    assert soustraction(5, 3) == 2
